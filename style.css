@@ -1,76 +1,127 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+<style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #2ebf91, #8360c3);
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      padding: 20px;
+      text-align: center;
+      overflow: hidden;
+      user-select: none;
+    }
 
-body {
-  font-family: 'Poppins', sans-serif;
-  background: linear-gradient(to right, #2ebf91, #8360c3);
-  color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  text-align: center;
-  padding: 20px;
-}
+    .app-container {
+      max-width: 600px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: nowrap;
+    }
 
-.app-container {
-  max-width: 500px;
-  width: 100%;
-}
+    .quote-card {
+      flex: 1;
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(14px);
+      padding: 40px 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      position: relative;
+      min-width: 320px;
+      max-width: 480px;
+      transition: opacity 0.4s ease;
+    }
 
-.quote-card {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(12px);
-  border-radius: 20px;
-  padding: 40px 30px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-  animation: fadeIn 1s ease-in-out;
-}
+    .quote-card.fade-out {
+      opacity: 0;
+    }
 
-.title {
-  font-size: 1.8rem;
-  margin-bottom: 20px;
-}
+    .title {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 24px;
+      text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    }
 
-.quote-text {
-  font-size: 1.3rem;
-  font-style: italic;
-  line-height: 1.6;
-  margin-bottom: 15px;
-  animation: fadeIn 2s ease-in-out;
-}
+    .quote-text {
+      font-size: 1.35rem;
+      font-style: italic;
+      line-height: 1.6;
+      min-height: 110px;
+      margin-bottom: 30px;
+      user-select: text;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+    }
 
-.quote-date {
-  font-size: 0.9rem;
-  opacity: 0.8;
-}
+    .quote-date {
+      font-size: 0.95rem;
+      font-weight: 500;
+      opacity: 0.75;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+    }
 
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+    /* Arrow buttons */
+    .arrow {
+      cursor: pointer;
+      font-size: 3.2rem;
+      color: #fff;
+      background: rgba(255, 255, 255, 0.18);
+      border-radius: 50%;
+      padding: 14px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      user-select: none;
+      flex-shrink: 0;
+      width: 66px;
+      height: 66px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      border: none;
+    }
 
-@media (max-width: 600px) {
-  .quote-card {
-    padding: 30px 20px;
-  }
+    .arrow:hover,
+    .arrow:focus {
+      color: #2ebf91;
+      background: rgba(255, 255, 255, 0.42);
+      outline: none;
+      box-shadow: 0 0 12px #2ebf91;
+    }
 
-  .title {
-    font-size: 1.5rem;
-  }
-
-  .quote-text {
-    font-size: 1.1rem;
-  }
-}
+    /* Responsive adjustments */
+    @media (max-width: 600px) {
+      .arrow {
+        font-size: 2.4rem;
+        width: 50px;
+        height: 50px;
+        padding: 10px;
+      }
+      .quote-card {
+        min-width: 280px;
+        max-width: 360px;
+        padding: 30px 22px;
+      }
+      .title {
+        font-size: 1.5rem;
+        margin-bottom: 18px;
+      }
+      .quote-text {
+        font-size: 1.15rem;
+        min-height: 90px;
+        margin-bottom: 22px;
+      }
+      .quote-date {
+        font-size: 0.85rem;
+      }
+    }
